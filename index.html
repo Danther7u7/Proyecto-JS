@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Proyecto JavaScript</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <h1 class="pt-3">Ricas Empanadas!</h1>
+        <div class="row" id="cards"></div>
+    </div>
+
+    <div class="container py-3">
+        <table class="table">
+            <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Producto</th>
+                <th scope="col">Cantidad</th>
+                <th scope="col">Total</th>
+            </tr>
+            </thead>
+            <tbody id="items"></tbody>
+            <tfoot>
+                <tr id="footer">
+                    <th scope="row" colspan="5">Carrito vacío - comience a comprar!</th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+
+    <template id="template-footer">
+        <th scope="row" colspan="2">Total Productos</th>
+        <td class="totalCantidad">10</td>
+        <td class="totalPagar">$ <span>5000</span></td>
+    </template>
+    
+    <template id="template-carro">
+      <tr>
+        <th scope="row">id</th>
+        <td>Café</td>
+        <td>1</td>
+        <td>$ <span>500</span></td>
+      </tr>
+    </template>
+
+    <template id="template-card">
+        <div class="col-12 mb-2 col-md-4 py-3">
+            <div class="card position-relative">
+                <img class="card-img-top">
+                <div class="card-body">
+                    <h5 class="text-center">Titulo</h5>
+                    <p class="text-center">precio</p>
+                    <button class="btn btn-dark position-absolute top-100 start-50 translate-middle">Comprar</button>
+                </div>
+            </div>
+          </div>
+    </template>
+
+    <script src="./proyecto.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>

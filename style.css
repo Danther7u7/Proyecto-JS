@@ -1,0 +1,19 @@
+body {
+    background-color: rgb(245, 245, 245);
+}
+
+.card {
+    width: 100%;
+    margin: 0 auto;
+}
+.card-img-top {
+    max-height: 210px;
+}
+
+.totalCantidad {
+    font-weight: bold;
+}
+
+.totalPagar {
+    font-weight: bold;
+}
