@@ -9,7 +9,11 @@ const templateCarro = document.getElementById('template-carro').content
 const fragment = document.createDocumentFragment()
 
 document.addEventListener('DOMContentLoaded', e => { 
-    fetchData() 
+    fetchData()
+    if (localStorage.getItem('carro')) {
+        carro = JSON.parse(localStorage.getItem('carro'))
+        paintCarro();
+    }
 });
 
 cards.addEventListener('click', e => { 
@@ -38,7 +42,7 @@ const addCarro = e => {
     if (e.target.classList.contains('btn-dark')) {
         setCarro(e.target.parentElement)
     }
-    e.stopPropagation()
+    e.stopPropagation();
 }
 
 const setCarro = objeto => {
@@ -65,7 +69,7 @@ const paintCarro = () => {
         templateCarro.querySelector('th').textContent = producto.id
         templateCarro.querySelectorAll('td')[0].textContent = producto.nombre
         templateCarro.querySelectorAll('td')[1].textContent = producto.cantidad
-        templateCarro.querySelector('span').textContent = producto.precio * producto.cantidad
+        templateCarro.querySelectorAll('td')[2].textContent = producto.precio * producto.cantidad
 
         const clone = templateCarro.cloneNode(true)
         fragment.appendChild(clone)
@@ -74,13 +78,15 @@ const paintCarro = () => {
     items.appendChild(fragment)
 
     paintFooter();
+
+    localStorage.setItem('carro', JSON.stringify(carro));
 }
 
 const paintFooter = () => {
     footer.innerHTML = ''
 
     const nCantidad = Object.values(carro).reduce((acc, { cantidad }) => acc + cantidad, 0)
-    const nPrecio = Object.values(carro).reduce((acc, {cantidad, precio}) => acc + cantidad * precio ,0)
+    const nPrecio = Object.values(carro).reduce((acc, {cantidad, precio}) => acc + cantidad * precio , 0)
 
     templateFooter.querySelectorAll('td')[0].textContent = nCantidad
     templateFooter.querySelector('span').textContent = nPrecio
@@ -90,4 +96,28 @@ const paintFooter = () => {
 
     footer.appendChild(fragment)
 
-} 
+    const pagarTotal = () => {
+        const nPrecio = Object.values(carro).reduce((acc, {cantidad, precio}) => acc + cantidad * precio , 0)
+        if (nPrecio > 0){
+            Swal.fire({icon : 'success', title: 'Pago Exitoso!', text : (`Total: $${nPrecio}`)})
+        }else{
+            Swal.fire({
+                icon: 'error',
+                title: 'Oops...',
+                text: 'Tu carrito se encuentra vacío!'
+              })
+        }
+    }
+
+    const botonPagar = document.getElementById("btnPagar");
+    botonPagar.addEventListener("click", pagarTotal);
+
+    const botonVaciar = document.getElementById("btnVaciar");
+    botonVaciar.addEventListener("click", () => {
+        carro = {}
+        paintCarro();
+    });
+}
+
+
+

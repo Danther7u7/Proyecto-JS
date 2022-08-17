@@ -1,11 +1,13 @@
 body {
     background-color: rgb(245, 245, 245);
+    font-family: 'Figtree', sans-serif;
 }
 
 .card {
     width: 100%;
     margin: 0 auto;
 }
+
 .card-img-top {
     max-height: 210px;
 }
@@ -16,4 +18,26 @@ body {
 
 .totalPagar {
     font-weight: bold;
+}
+
+.logo {
+    background-color: #212529;
+    margin-bottom: 16px;
+}
+
+.titulo {
+    padding: 0px;
+    color: white;
+    font-weight: bold;
+}
+
+.pagar {
+    padding-left: 50px;
+    padding-right: 50px;
+    margin-left: 5px;
+}
+
+.vaciar {
+    padding-left: 25px;
+    padding-right: 25px;
 }
