@@ -1,7 +1,7 @@
 [
     {"nombre":"Empanada de Pino", "precio":2000, "id":1, "picture":"./pictures/empanadaPino.jpg"},
     {"nombre":"Empanada de Champiñon Queso", "precio":2500, "id":2, "picture":"./pictures/empanadaChamp.jpg"},
-    {"nombre":"Empanada de Churrasco Queso", "precio":2500, "id":3, "picture":"../pictures/empanadaChurras.jpg"},
+    {"nombre":"Empanada de Churrasco Queso", "precio":2500, "id":3, "picture":"./pictures/empanadaChurras.jpg"},
     {"nombre":"Empanada de Jamon Queso", "precio":2500, "id":4, "picture":"./pictures/empanadaJamon.jpg"},
     {"nombre":"Empanada de Pollo Queso", "precio":2500, "id":5, "picture":"./pictures/empanadaPollo.jpg"},
     {"nombre":"Empanada de Camaron Queso", "precio":2500, "id":6, "picture":"./pictures/empanadaCamaron.jpg"}
